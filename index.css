@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --glass-bg: rgba(15, 23, 42, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-blue: #38bdf8;
+    --accent-violet: #818cf8;
+  }
+
+  .light {
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --accent-blue: #0284c7;
+    --accent-violet: #6366f1;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  code, pre, kbd {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Hardware-accelerated, GPU-optimized Liquid Glass */
+.liquid-glass {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  transform: translateZ(0);
+}
+
+.light .liquid-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.06);
+  transform: translateZ(0);
+}
+
+.liquid-glass-subtle {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light .liquid-glass-subtle {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.liquid-glass-pill {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateZ(0);
+}
+
+.light .liquid-glass-pill {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transform: translateZ(0);
+}
+
+/* Ultra-light scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Optimized CSS Keyframes using solely transform and opacity (GPU composited) */
+@keyframes orb-float-opt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  50% {
+    transform: translate3d(18px, -20px, 0) scale3d(1.05, 1.05, 1);
+  }
+}
+
+.animate-orb {
+  animation: orb-float-opt 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes fadeInFast {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInFast 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Safe area insets for mobile */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0.75rem), 0.75rem);
+}
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top, 0.75rem), 0.75rem);
+}
+
+/* High performance message container containment */
+.msg-contain {
+  contain: content;
+}

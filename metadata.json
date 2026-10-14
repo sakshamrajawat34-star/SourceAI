@@ -1,0 +1,9 @@
+{
+  "name": "SOURCE AI - Intelligence, Without Limits",
+  "description": "Next-generation AI assistant by Source Lab, developed by Saksham Rajawat. Featuring an Apple-inspired Liquid Glass interface, reasoning, coding, search grounding, voice, and multimodal intelligence.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
